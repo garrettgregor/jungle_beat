@@ -14,19 +14,48 @@ RSpec.describe LinkedList do
 
     expect(list.head).to be(nil)
   end
-
   
+  it "has an empty head" do
+    list = LinkedList.new
+    expect(list.head).to be(nil)
+    
+    list.append("doop")
+    expect(list.append("doop")).to eq("doop")
+  end
+  
+  it "contains data" do
+    list = LinkedList.new
+    list.append("doop")
+
+    expect(list.append("doop")).to eq("doop")
+    expect(list).to be_a(LinkedList)
+    expect(list.head).to be_a(Node)
+    expect(list.head.data).to eq("doop")
+  end
+  
+  it "has an empty next node" do
+    list = LinkedList.new
+    list.append("doop")
+
+    
+    expect(list.head).to be_a(Node)
+    expect(list.head.data).to eq("doop")
+    expect(list.head.next_node).to eq(nil)
+  end
+  
+  it "can count nodes" do
+    list = LinkedList.new
+    list.append("doop")
+    
+    expect(list.head).to be_a(Node)
+    expect(list.head.data).to eq("doop")
+    expect(list.head.next_node).to eq(nil)
+    expect(list.count).to eq(1)
+  end
+
+
 end
 
-# => <LinkedList head=nil #45678904567>
-# > list.head
-# => nil
-# > list.append("doop")
-# => "doop"
-# > list
-# => <LinkedList head=<Node data="doop" next_node=nil #5678904567890> #45678904567>
-# > list.head.next_node
-# => nil
 # > list.count
 # => 1
 # > list.to_string
