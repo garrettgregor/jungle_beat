@@ -23,7 +23,7 @@ class LinkedList
   end
   
   def to_string
-    @head.data
+    "#{@head.data}"
   end
   
 end
