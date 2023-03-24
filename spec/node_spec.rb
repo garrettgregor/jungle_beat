@@ -12,11 +12,8 @@ RSpec.describe Node do
     node = Node.new("plop")
     
     expect(node.data).to eq("plop")
-    expect(node.next_node).to eq(nil)
+    expect(node.next_node).to be(nil)
   end
-  
-
-
 end
 
 #   xit "Makes a Node" do
