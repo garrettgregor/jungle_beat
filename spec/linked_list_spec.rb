@@ -53,10 +53,12 @@ RSpec.describe LinkedList do
     expect(list.count).to eq(1)
   end
 
+  it "can give the output as a string" do
+    list = LinkedList.new
+    list.append("doop")
+    
+    expect(list.count).to eq(1)
+    expect(list.to_string).to eq("doop")
+  end
 
 end
-
-# > list.count
-# => 1
-# > list.to_string
-# => "doop"
