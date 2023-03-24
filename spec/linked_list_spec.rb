@@ -8,6 +8,14 @@ RSpec.describe LinkedList do
 
     expect(list).to be_an_instance_of(LinkedList)
   end
+  
+  it "has an empty head" do
+    list = LinkedList.new
+
+    expect(list.head).to be(nil)
+  end
+
+  
 end
 
 # => <LinkedList head=nil #45678904567>
