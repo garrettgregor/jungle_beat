@@ -18,14 +18,13 @@ RSpec.describe LinkedList do
   it "can append nodes to the linked list" do
     list = LinkedList.new
     expect(list.head).to be(nil)
-    
-    list.append("doop")
+
+    # list.append("doop")
     expect(list.append("doop")).to eq("doop")
   end
   
   it "contains data" do
     list = LinkedList.new
-    list.append("doop")
 
     expect(list.append("doop")).to eq("doop")
     expect(list).to be_a(LinkedList)
@@ -79,12 +78,8 @@ RSpec.describe LinkedList do
     expect(list.head).to be_an_instance_of(Node)
     expect(list.head.next_node).to eq(nil)
     
-    
     list.append("deep")
-    expect(list.append("deep")).to eq("deep")
     expect(list.head.next_node.data).to eq("deep")
-    
-
   end
 # > list.append("deep")
 # => "deep"
