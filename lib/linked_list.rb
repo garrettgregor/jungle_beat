@@ -21,6 +21,9 @@ class LinkedList
     "#{@head.data}"
   end
 
-
+  def last_node(pants)
+    return pants if (pants).tail?
+    last_node(pants.next_node)
+  end
 end
 

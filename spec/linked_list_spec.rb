@@ -61,6 +61,13 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("doop")
   end
 
+  it "checks for last node" do
+    list = LinkedList.new
+    list.append("doop")
+
+    expect(list.last_node(list.head)).to be(list.head)
+  end
+  
   it "Append, All/To String, and Insert (Multiple Nodes)" do
     list = LinkedList.new
 
@@ -74,7 +81,6 @@ RSpec.describe LinkedList do
     
     
     list.append("deep")
-    require 'pry'; binding.pry
     expect(list.append("deep")).to eq("deep")
     expect(list.head.next_node.data).to eq("deep")
     
