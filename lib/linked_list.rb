@@ -1,31 +1,26 @@
 class LinkedList
-  attr_reader :head,
-              :list_count
+  attr_accessor :head
   def initialize
     @head = nil
-    @list_count = 0
   end
 
-  def append(data)
-    node = Node.new(data)
-    @head = node
-    node.data
+  def append(next_node_data)
+    self.head = Node.new(next_node_data)
+    next_node_data
   end
-  
+
   def count
-    @list_count += 1 if !@head.data.nil?
-    # if @head.data != nil
-    #   @list_count += 1
-    # else
-    #   0
-    # end
-    @list_count
+    if head.nil? # if the head of the list is 0, then...
+      0
+    else #otherwise...
+      1
+    end
   end
-  
+
   def to_string
     "#{@head.data}"
   end
-  
-end
 
+
+end
 
