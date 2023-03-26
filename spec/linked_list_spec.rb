@@ -3,6 +3,7 @@ require "./lib/node"
 require "./lib/linked_list"
 
 RSpec.describe LinkedList do
+  # Iteration 1 
   it "exists" do
     list = LinkedList.new
 
@@ -97,7 +98,6 @@ RSpec.describe LinkedList do
     expect(list.count).to eq(2)
   end
   
-  
   it "return an empty string if the string is empty" do
     list = LinkedList.new
 
@@ -119,19 +119,28 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("doop deep")
   end
   
-  it "Append, All/To String, and Insert (Multiple Nodes)" do
+  # Iteration 2
+  it "can string more than 2 nodes together" do
     list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.append("dop")
 
-    expect(list).to be_an_instance_of(LinkedList)
-    expect(list.head).to eq(nil)
+    expect(list.to_string).to eq("plop suu dop")
+    expect(list.count).to eq(3)
+  end
+  
+  it "can prepend nodes to the linked list" do
+    list = LinkedList.new
+    list.append("plop")
+
+    expect(list.to_string).to eq("plop")
+
+    list.append("suu")
+    list.prepend("dop")
     
-    list.append("doop")
-    expect(list.head.data).to eq("doop")
-    expect(list.head).to be_an_instance_of(Node)
-    expect(list.head.next_node).to eq(nil)
-    
-    list.append("deep")
-    expect(list.head.next_node.data).to eq("deep")
+    expect(list.to_string).to eq("dop plop suu")
+    expect(list.count).to eq(3)
   end
 
 end
