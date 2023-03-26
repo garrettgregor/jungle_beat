@@ -5,30 +5,27 @@ class LinkedList
   end
 
   def append(next_node_data)
-#Create a new node with the input string - list.append('Rhodes')
-    # new_node = Node.new(next_node_data)
-# Check if the linked list is empty
-    ## This new version of append employs the set_head method and set_tail methods we've defined below  
-
+    #### This new version of append employs the set_head method and set_tail methods we've defined below  
     if empty?
       set_head(next_node_data)
     else
       set_tail(next_node_data)
     end
-    ### another way to do this is... 
-    # def append(surname)
-    #  empty? ? set_head(surname) : set_tail(surname)
-    # end
+    next_node_data
+    
+    #### another way to do this is... 
+    ## def append(surname)
+    ##  empty? ? set_head(surname) : set_tail(surname)
+    ## end
     ## If empty? ? yes = set head, no = set tail?
     ## I don't quite understand what this is saying yet though
 
-    ## previous iteration
+    ## first iteration
     # if empty?
     #   self.head = new_node(next_node_data)
     # else
     #   last_node(head).next_node = new_node(next_node_data)
     # end
-    next_node_data
   end
 
   def set_head(set_head_data)
@@ -90,13 +87,10 @@ class LinkedList
     string_nodes_together(head, concat(node_x, node_x_plus_1))
   end
 
-
-
   def concat(node_x, node_x_plus_1)
     "#{node_x} #{node_x_plus_1}"
     #this method will put together a node and the node after it
   end
-
 
   def empty?
     head.nil?
