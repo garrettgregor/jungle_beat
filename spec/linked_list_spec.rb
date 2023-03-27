@@ -142,5 +142,55 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("dop plop suu")
     expect(list.count).to eq(3)
   end
+  
+  it "can insert nodes as a specific index" do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+
+    expect(list.to_string).to eq("dop plop suu")
+    expect(list.count).to eq(3)
+
+    expect(list.insert(1, "woo")).to eq("woo")
+  end
+  
+  it "can print all of its nodes' data to a string" do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+
+    expect(list.to_string).to eq("dop plop suu")
+    expect(list.count).to eq(3)
+    
+    list.insert(1, "woo")
+
+    expect(list.to_string).to eq("dop woo plop suu")
+  end
+  
+  it "can find nodes' data at a particular location" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    expect(list.to_string).to eq("deep woo shi shu blop")
+    expect(list.find(2,1)).to eq("shi")
+  end
+  
+  it "can find multiple nodes' data at a particular location and then return multiple nodes data in a string" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    expect(list.to_string).to eq("deep woo shi shu blop")
+    expect(list.find(1,3)).to eq("woo shi shu")
+  end
 
 end

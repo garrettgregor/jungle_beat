@@ -65,8 +65,6 @@ class LinkedList
     #   1
     # end
   end
-
-  
   
   def to_string
     ### first iteration
@@ -83,19 +81,19 @@ class LinkedList
     return "" if empty? # this will return a blank string if the empty method returns true
     return string_starter if head.tail? # this will return the head data if the head is the tail, checked using the tail? method which will return true if the head is the tail
     string_nodes(head.next_node, string_starter) # if the above isn't met, this will use the string_nodes method we created, which will take the head.next_node as the first parameter 
+    
+    ## Another way to define string from Chat GPT...
+    # def to_string #this defines the to_string method, for which we can call on a linkedlist object, in this case list
+    #   return "" if empty? #return "" if the empty? returns true, which uses the empty? method we created which checkes to see if the head is empty
+    #   current_node = head #this sets a new variable called current_node to be the head
+    #   result = "" #this sets a new variable that is an empty string, which is technically an array
+    #   while current_node != nil #so long as the current node does not equal nil, do this...
+    #     result += current_node.data.to_s + " " #this adds the current_nodes' data to the result string/array, converts it to a string, and then adds a space to the end of it (anticipating an array after)
+    #     current_node = current_node.next_node #this sets the current node to equal the current node's next node, which makes this recursive, which will make this a loop that will run until the next node = nil
+    #   end #this ends the while method's instructions
+    #   result.strip #this applies the strip to the result variable, which will 
+    # end
   end
-  
-  ## Another way to define string from Chat GPT...
-  # def to_string #this defines the to_string method, for which we can call on a linkedlist object, in this case list
-  #   return "" if empty? #return "" if the empty? returns true, which uses the empty? method we created which checkes to see if the head is empty
-  #   current_node = head #this sets a new variable called current_node to be the head
-  #   result = "" #this sets a new variable that is an empty string, which is technically an array
-  #   while current_node != nil #so long as the current node does not equal nil, do this...
-  #     result += current_node.data.to_s + " " #this adds the current_nodes' data to the result string/array, converts it to a string, and then adds a space to the end of it (anticipating an array after)
-  #     current_node = current_node.next_node #this sets the current node to equal the current node's next node, which makes this recursive, which will make this a loop that will run until the next node = nil
-  #   end #this ends the while method's instructions
-  #   result.strip #this applies the strip to the result variable, which will 
-  # end
   
   def string_nodes(shoes, string_starter)
     return concat(string_starter, shoes) if shoes.tail?
@@ -124,6 +122,68 @@ class LinkedList
     prepended_node = new_node(prepended_nodes_data)
     prepended_node.next_node = head
     self.head = prepended_node
+  end
+
+  def insert(position, inserted_nodes_data)
+    #create an index
+    inserted_node = new_node(inserted_nodes_data)
+    prior_node = node_at(head, position - 1)
+    next_node = node_at(head, position)
+    prior_node.next_node = inserted_node
+    inserted_node.next_node = next_node
+    return inserted_node.data
+  end
+  
+  # def node_at(node, position, counter=0)
+  #   return node if position == counter
+  #   node_at(node.next_node, position, counter += 1)
+  # end
+  
+  def node_at(node, position)
+   counter = 0
+   target = node
+   while counter < position
+      target = target.next_node
+      counter += 1
+   end
+   return target
+  end
+  
+  
+  def find(position, number_of_nodes)
+    node = @head
+    pointer = node_at(node, position)
+    return_value = ""
+    counter = 1
+    while counter <= number_of_nodes
+      # return_value += "#{pointer.data}"
+      return_value += "#{pointer.data} "
+      pointer = pointer.next_node
+      counter += 1
+    end
+    return_value.rstrip 
+  end
+  # def find(position, number_of_nodes)
+  #   pointer = @head
+  #   counter = 1
+  #   return_value = []
+  #   while counter <= number_of_nodes
+  #     return_value << pointer.data
+  #     pointer = pointer.next_node
+  #     counter += 1
+  #   end
+  #   require 'pry'; binding.pry
+  #   return return_value.join(" ")
+  # end
+
+  # def find(start, count)
+  #   found_node = node_at(head, start)
+  #   socks = string_starter(found_node)
+  #   return socks if count == 1
+  #   string_nodes(found_node.next_node, socks, count -= 1)
+  # end
+  def includes?
+  
   end
 end
 
