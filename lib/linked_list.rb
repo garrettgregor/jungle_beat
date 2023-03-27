@@ -182,8 +182,16 @@ class LinkedList
   #   return socks if count == 1
   #   string_nodes(found_node.next_node, socks, count -= 1)
   # end
-  def includes?
-  
+  def includes?(data)
+    node = @head
+    while node.data != data
+      if node.tail?
+        return false
+      else
+        node = node.next_node
+      end
+    end
+    return true
   end
 end
 

@@ -192,5 +192,17 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("deep woo shi shu blop")
     expect(list.find(1,3)).to eq("woo shi shu")
   end
+  
+  it "can see if a piece of data is in the LinkedList" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    expect(list.includes?("deep")).to eq(true)
+    expect(list.includes?("dep")).to eq(false)
+  end
 
 end
