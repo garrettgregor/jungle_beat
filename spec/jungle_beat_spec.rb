@@ -32,4 +32,14 @@ RSpec.describe JungleBeat do
     
     expect(jb.count).to eq(6)
   end
+  
+  it "can play beats" do 
+    jb = JungleBeat.new
+    jb.append("deep doo ditt")
+    jb.append("woo hoo shu")
+    
+    expect(jb.count).to eq(6)
+    require 'pry'; binding.pry
+    expect(jb).to respond_to(:play)
+  end
 end
