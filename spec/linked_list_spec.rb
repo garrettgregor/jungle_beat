@@ -228,4 +228,5 @@ RSpec.describe LinkedList do
     expect(list.pop).to eq("shu")
   end
 
+  ## Ready to Start iteration 3 - but first, a pull request...
 end
