@@ -95,7 +95,7 @@ class LinkedList
     return "#{old_tail.data}"
   end
   
-  def find(position, number_of_nodes)
+  def find(position, number_of_nodes) 
     node = @head
     pointer = node_at(node, position)
     return_value = ""
