@@ -134,11 +134,6 @@ class LinkedList
     return inserted_node.data
   end
   
-  # def node_at(node, position, counter=0)
-  #   return node if position == counter
-  #   node_at(node.next_node, position, counter += 1)
-  # end
-  
   def node_at(node, position)
    counter = 0
    target = node
@@ -148,7 +143,13 @@ class LinkedList
    end
    return target
   end
-  
+
+  def pop
+    new_tail = node_at(head, count - 2)
+    old_tail = new_tail.next_node
+    new_tail.next_node = nil
+    return "#{old_tail.data}"
+  end
   
   def find(position, number_of_nodes)
     node = @head
@@ -163,25 +164,7 @@ class LinkedList
     end
     return_value.rstrip 
   end
-  # def find(position, number_of_nodes)
-  #   pointer = @head
-  #   counter = 1
-  #   return_value = []
-  #   while counter <= number_of_nodes
-  #     return_value << pointer.data
-  #     pointer = pointer.next_node
-  #     counter += 1
-  #   end
-  #   require 'pry'; binding.pry
-  #   return return_value.join(" ")
-  # end
 
-  # def find(start, count)
-  #   found_node = node_at(head, start)
-  #   socks = string_starter(found_node)
-  #   return socks if count == 1
-  #   string_nodes(found_node.next_node, socks, count -= 1)
-  # end
   def includes?(data)
     node = @head
     while node.data != data

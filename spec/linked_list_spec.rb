@@ -3,7 +3,7 @@ require "./lib/node"
 require "./lib/linked_list"
 
 RSpec.describe LinkedList do
-  # Iteration 1 
+  ### Iteration 1 
   it "exists" do
     list = LinkedList.new
 
@@ -119,7 +119,7 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("doop deep")
   end
   
-  # Iteration 2
+  ### Iteration 2
   it "can string more than 2 nodes together" do
     list = LinkedList.new
     list.append("plop")
@@ -203,6 +203,29 @@ RSpec.describe LinkedList do
 
     expect(list.includes?("deep")).to eq(true)
     expect(list.includes?("dep")).to eq(false)
+  end
+  
+  it "can pop the last object" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    
+    expect(list.pop).to eq("blop")
+  end
+  
+  it "can pop more than object" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    list.pop
+
+    expect(list.pop).to eq("shu")
   end
 
 end
