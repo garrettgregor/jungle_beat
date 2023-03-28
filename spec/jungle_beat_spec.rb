@@ -39,7 +39,10 @@ RSpec.describe JungleBeat do
     jb.append("woo hoo shu")
     
     expect(jb.count).to eq(6)
-    require 'pry'; binding.pry
+    expect(jb.play).to eq("")
+    expect(jb.play).to eq("")
+    expect(jb.play).to eq("")
+    expect(jb.play).to eq("")
     expect(jb).to respond_to(:play)
   end
 end
