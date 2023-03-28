@@ -11,4 +11,8 @@ class JungleBeat
     end
     return data
   end
+  
+  def count
+    self.list.count
+  end
 end

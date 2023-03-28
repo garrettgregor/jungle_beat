@@ -19,10 +19,17 @@ RSpec.describe JungleBeat do
   
   it "can append into the linkedlist append method" do 
     jb = JungleBeat.new
-    jb.append("deep doo ditt")
 
     expect(jb.append("deep doo ditt")).to eq("deep doo ditt")
     expect(jb.list.head.data).to eq("deep")
     expect(jb.list.head.next_node.data).to eq("doo")
+  end
+  
+  it "can count the number of nodes in the list" do 
+    jb = JungleBeat.new
+    jb.append("deep doo ditt")
+    jb.append("woo hoo shu")
+    
+    expect(jb.count).to eq(6)
   end
 end
