@@ -13,21 +13,4 @@ class Node
       false
     end
   end
-  
 end
-
-
-
-
-# First iteration
-
-# class Node
-#   attr_accessor :data, 
-#                 :next_node
-#   attr_reader :data, 
-#               :next_node
-#   def initialize(data)
-#     @data = data
-#     @next_node = nil
-#   end
-# end
