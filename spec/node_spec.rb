@@ -20,14 +20,4 @@ RSpec.describe Node do
 
     expect(node.tail?).to eq(true)
   end
-
 end
-
-#   xit "Makes a Node" do
-#     node = Node.new("plop")
-
-#     expect(node).to an_instance_of(Node)
-#     expect(node.sound).to eq("plop")
-#     expect(node.next_node).to eq(nil)
-#   end
-# end
